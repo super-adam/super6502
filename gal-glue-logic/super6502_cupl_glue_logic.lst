@@ -1,0 +1,56 @@
+LISTING FOR LOGIC DESCRIPTION FILE: super6502_cupl_glue_logic.pld    Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# MW-10400000
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Fri Oct 31 15:55:02 2025
+
+  1:Name            Gates;
+  2:Partno          CA0001;
+  3:Revision        05;
+  4:Date            5/30/25;
+  5:Designer        Apps Egn;
+  6:Company         Microchip;
+  7:Location        None;
+  8:Assembly        None;
+  9:
+ 10:/*
+ 11: * Inputs:  define inputs to build simple gates from
+ 12: */
+ 13:
+ 14:Pin 1 =  clk;
+ 15:Pin 2 =  a8;
+ 16:Pin 3 =  a9;
+ 17:Pin 4 =  a10;
+ 18:Pin 5 =  a11;
+ 19:Pin 6 =  a12;
+ 20:Pin 7 =  a13;
+ 21:Pin 8 =  a14;
+ 22:Pin 9 =  a15;
+ 23:
+ 24:/*
+ 25: * Outputs:  define outputs as active HI levels
+ 26: *
+ 27: */
+ 28:
+ 29:
+ 30:Pin 13 = cs1;
+ 31:Pin 14 = cs2;
+ 32:Pin 15 = cs3;
+ 33:Pin 16 = cs4;
+ 34:Pin 17 = cs5;
+ 35:Pin 18 = ram_cs;
+ 36:Pin 19 = rom_cs;
+ 37:
+ 38:rom_cs  = !(a13 & a15);  
+ 39:ram_cs  = a13 & a15;  
+ 40:
+ 41:
+ 42:
+ 43:
+ 44:
+
+
+
+Jedec Fuse Checksum       (12a3)
+Jedec Transmit Checksum   (8649)

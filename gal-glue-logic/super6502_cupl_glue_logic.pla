@@ -1,0 +1,25 @@
+# Berkeley PLA format generated using
+#
+# CUPL(WM)        5.0a Serial# MW-10400000
+# Device          g16v8s  Library DLIB-h-40-9
+# Created         Fri Oct 31 15:55:02 2025
+# Name            Gates
+# Partno          CA0001
+# Revision        05
+# Date            5/30/25
+# Designer        Apps Egn
+# Company         Microchip
+# Assembly        None
+# Location        None
+#
+# Inputs  a8 a9 a10 a11 
+#         a12 a13 a14 a15 
+#         clk cs1 cs2 cs3 
+#         cs4 cs5 ram_cs rom_cs 
+# Outputs ram_cs !rom_cs 
+.i 16
+.o 2
+.p 2
+-----1-1-------- 1~
+-----1-1-------- ~1
+.end

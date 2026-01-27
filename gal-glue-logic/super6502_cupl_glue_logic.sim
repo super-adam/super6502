@@ -1,0 +1,30 @@
+%SIGNAL
+PIN   2 =  a8 
+PIN   3 =  a9 
+PIN   4 =  a10 
+PIN   5 =  a11 
+PIN   6 =  a12 
+PIN   7 =  a13 
+PIN   8 =  a14 
+PIN   9 =  a15 
+PIN   1 =  clk 
+PIN  13 =  cs1 
+PIN  14 =  cs2 
+PIN  15 =  cs3 
+PIN  16 =  cs4 
+PIN  17 =  cs5 
+PIN  18 =  ram_cs 
+PIN  19 =  rom_cs 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+ram_cs =>
+    a13 & a15
+
+rom_cs =>
+    a13 & a15
+
+%END
