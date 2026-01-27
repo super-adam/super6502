@@ -1,1 +1,2 @@
-To compile it use: WinCUPL II Version 1.0 Beta 04/08/2025
+## gal-glue-logic
+ - To compile it use: WinCUPL II Version 1.0 Beta 04/08/2025
