@@ -7,12 +7,12 @@ PIN   6 =  a12
 PIN   7 =  a13 
 PIN   8 =  a14 
 PIN   9 =  a15 
+PIN  17 =  acia_cs 
 PIN   1 =  clk 
 PIN  13 =  cs1 
 PIN  14 =  cs2 
 PIN  15 =  cs3 
 PIN  16 =  cs4 
-PIN  17 =  cs5 
 PIN  18 =  ram_cs 
 PIN  19 =  rom_cs 
 %END
@@ -21,10 +21,14 @@ PIN  19 =  rom_cs
 %END
 
 %EQUATION
+acia_cs =>
+    !a8 & a9 & !a10 & !a11 & a12 & !a13 & a14 & a15
+
 ram_cs =>
-    a13 & a15
+    rom_cs
+  # acia_cs
 
 rom_cs =>
-    a13 & a15
+    a13 & a14 & a15
 
 %END
