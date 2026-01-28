@@ -1,0 +1,89 @@
+
+(rules PCB mos6502_v5
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 429)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 300.0)
+    (clear 300.0)
+    (clear 150.0 (type smd_to_turn_gap))
+  )
+  (padstack "Via[0-1]_1000:500_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_1000:500_um" "Via[0-1]_1000:500_um" default
+  )
+  (via 
+    "Via[0-1]_1000:500_um-kicad_default" "Via[0-1]_1000:500_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_1000:500_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_1000:500_um-kicad_default"
+  )
+  (class default
+    "ϕ0"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND VCC "unconnected-(gal1-I1{slash}CLK-Pad1)" "Net-(D1-A)" "CS_4" "CS_5" "ACIA_CS" "CS_2"
+    "unconnected-(gal1-I10{slash}~{OE}-Pad11)" "CS_3" "Rom_Cs" "unconnected-(gal1-IO8-Pad12)" "Sram_Cs" D0 A10 A7
+    A4 A15 A6 A11 A12 D7 D2 A9
+    A0 A5 A2 D5 A1 A3 A8 D1
+    A14 D6 A13 D4 D3 ~{WE} ~{RES} "unconnected-(mos1-nc-Pad36)"
+    "unconnected-(mos1-SYNC-Pad7)" "unconnected-(mos1-~{SO}-Pad38)" "unconnected-(mos1-ϕ2-Pad39)" "unconnected-(mos1-nc-Pad5)" "unconnected-(mos1-ϕ1-Pad3)" "unconnected-(mos1-nc-Pad35)" "unconnected-(mos1-RDY-Pad2)" "unconnected-(rom1-VPP-Pad1)"
+    "unconnected-(rom1-~{PGM}-Pad31)" "Net-(U3-3V3OUT)" "Net-(SW2-C)" "unconnected-(J3-Pin_16-Pad16)" "unconnected-(sram1-NC-Pad1)" "unconnected-(J1-Pin_3-Pad3)" "Net-(D3-K)" "Net-(D3-A)"
+    "unconnected-(J1-Pin_4-Pad4)" "unconnected-(J1-Pin_5-Pad5)" "unconnected-(Y1-Vcontrol-Pad1)" ~{NMI} ~{IRQ} "unconnected-(U1-PA7-Pad9)" "unconnected-(U1-CB2-Pad19)" "unconnected-(U1-PA0-Pad2)"
+    "unconnected-(U1-PB0-Pad10)" "unconnected-(U1-PA4-Pad6)" "unconnected-(U1-CB1-Pad18)" "unconnected-(U1-PA3-Pad5)" "unconnected-(U1-PB5-Pad15)" "unconnected-(U1-CA1-Pad40)" "unconnected-(U1-PB1-Pad11)" "unconnected-(U1-PA2-Pad4)"
+    "unconnected-(U1-PA6-Pad8)" "unconnected-(U1-CA2-Pad39)" "unconnected-(U1-PB7-Pad17)" "unconnected-(U1-PB2-Pad12)" "unconnected-(U1-ϕ2-Pad25)" "unconnected-(U1-PA1-Pad3)" "unconnected-(U1-PB3-Pad13)" "unconnected-(U1-PB6-Pad16)"
+    "unconnected-(U1-PB4-Pad14)" "unconnected-(U1-PA5-Pad7)" "Net-(D4-K)" "Net-(D4-A)" TXD {slash}CTS {slash}DSR "Net-(IC1-XTAL2)"
+    "Net-(IC1-XTAL1)" RXC {slash}DTR {slash}RTS RXD {slash}DCD "USB_SHIELD" "Net-(J2-VBUS)"
+    "USB_D+" "USB_D-" "unconnected-(SW2-A-Pad3)" "unconnected-(U3-DCR-Pad9)" "unconnected-(U3-OSCO-Pad28)" "unconnected-(U3-CBUS3-Pad14)" "unconnected-(U3-CBUS4-Pad12)" "unconnected-(U3-RTS-Pad3)"
+    "unconnected-(U3-DCD-Pad10)" "unconnected-(U3-OSCI-Pad27)" "unconnected-(U3-RI-Pad6)" "unconnected-(U3-CTS-Pad11)" "unconnected-(U3-DTR-Pad2)" "unconnected-(U3-CBUS2-Pad13)" "CIA1_CS"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

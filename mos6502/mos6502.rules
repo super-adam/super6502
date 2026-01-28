@@ -1,0 +1,83 @@
+
+(rules PCB mos6502
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 3236)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 500.0)
+    (clear 500.0)
+    (clear 250.0 (type smd_to_turn_gap))
+    (clear 125.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_1000:500_um"
+    (shape
+      (circle F.Cu 1000.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 1000.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_1000:500_um" "Via[0-1]_1000:500_um" default
+  )
+  (via 
+    "Via[0-1]_1000:500_um-kicad_default" "Via[0-1]_1000:500_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_1000:500_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_1000:500_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND VCC "Cs_Rom" "unconnected-(U4-Pad2)" "unconnected-(U4-Pad4)" "unconnected-(U4-GND-Pad3)" "unconnected-(gal1-IO6-Pad14)" "unconnected-(gal1-IO5-Pad15)"
+    "unconnected-(gal1-I10{slash}~{OE}-Pad11)" "unconnected-(gal1-I03-Pad17)" "unconnected-(gal1-I9-Pad9)" "unconnected-(gal1-IO4-Pad16)" "unconnected-(gal1-IO8-Pad12)" "unconnected-(gal1-IO7-Pad13)" "unconnected-(gal1-IO2-Pad18)" D0
+    A10 A7 A4 A15 A6 A11 A12 D7
+    D2 A9 A0 A5 A2 D5 A1 A3
+    A8 D1 A14 D6 A13 D4 D3 "unconnected-(mos1-~{RES}-Pad40)"
+    "unconnected-(mos1-~{IRQ}-Pad4)" "unconnected-(mos1-R{slash}~{W}-Pad34)" "unconnected-(mos1-nc-Pad36)" "unconnected-(mos1-SYNC-Pad7)" "unconnected-(mos1-~{NMI}-Pad6)" "unconnected-(mos1-~{SO}-Pad38)" "unconnected-(mos1-ϕ2-Pad39)" "unconnected-(mos1-nc-Pad5)"
+    "unconnected-(mos1-ϕ0-Pad37)" "unconnected-(mos1-ϕ1-Pad3)" "unconnected-(mos1-nc-Pad35)" "unconnected-(mos1-RDY-Pad2)" "unconnected-(rom1-VPP-Pad1)" "unconnected-(rom1-~{PGM}-Pad31)" "unconnected-(sram1-~{OE}-Pad24)" "unconnected-(sram1-VCC-Pad32)"
+    "unconnected-(sram1-CS2{slash}CE2-Pad30)" "unconnected-(sram1-GND-Pad16)" "unconnected-(sram1-~{WE}-Pad29)" "unconnected-(sram1-~{CS1}{slash}~{CE1}-Pad22)" "unconnected-(sram1-NC-Pad1)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 500.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
