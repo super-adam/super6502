@@ -1,1 +1,5 @@
 kicad/mos6502-backups/mos6502-2026-01-28_130431.zip
+src/.source.sym
+src/.source.txt
+src/.source.vs
+src/eprom_image.dbg
