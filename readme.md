@@ -1,2 +1,5 @@
-## gal-glue-logic
- - To compile it use: WinCUPL II Version 1.0 Beta 04/08/2025
+## gal-glue-logic use WinCUPL II v1.0 Beta 04/08/2025
+
+## KiCad v9.0.6
+
+## KickAssembler v5.25
