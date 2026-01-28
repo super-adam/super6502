@@ -2,7 +2,7 @@
 #
 # CUPL(WM)        5.0a Serial# MW-10400000
 # Device          g16v8s  Library DLIB-h-40-9
-# Created         Tue Jan 27 18:50:19 2026
+# Created         Wed Jan 28 19:09:45 2026
 # Name            Gates
 # Partno          CA0001
 # Revision        05
@@ -19,9 +19,8 @@
 # Outputs !acia_cs !ram_cs !rom_cs 
 .i 16
 .o 3
-.p 4
+.p 3
 01001011-------- 1~~
----------------1 ~1~
---------1------- ~1~
+--------1------1 ~1~
 -----111-------- ~~1
 .end

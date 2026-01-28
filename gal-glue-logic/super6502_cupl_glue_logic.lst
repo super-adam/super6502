@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: super6502_cupl_glue_logic.pld    Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Tue Jan 27 18:50:19 2026
+Created Wed Jan 28 19:09:45 2026
 
   1:Name            Gates;
   2:Partno          CA0001;
@@ -43,7 +43,7 @@ Created Tue Jan 27 18:50:19 2026
  36:Pin 19 = rom_cs;
  37:rom_cs = !(a15 & a14 & a13);
  38:acia_cs = !(a15 & a14 & !a13 & a12 & !a11 & !a10 & a9 & !a8);
- 39:ram_cs = !(rom_cs # acia_cs);
+ 39:ram_cs = !(rom_cs & acia_cs);
  40:
  41:/*
  42:rom_cs  = !(a13 & a15);  
@@ -56,5 +56,5 @@ Created Tue Jan 27 18:50:19 2026
 
 
 
-Jedec Fuse Checksum       (19d3)
-Jedec Transmit Checksum   (95ea)
+Jedec Fuse Checksum       (15d7)
+Jedec Transmit Checksum   (8e12)
