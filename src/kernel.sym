@@ -1,4 +1,0 @@
-.label Message=$f200
-.label loop2=$f00f
-.label main=$f000
-.label loop1=$f002

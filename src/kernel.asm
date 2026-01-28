@@ -7,23 +7,51 @@
 // 1. Fill from $0000 to $0EFFF (The first 60KB approx)
 .fill $f000, $ea
 
+// Base address for your ACIA
+.label ACIA_DATA    = $d200
+.label ACIA_STATUS  = $d201
+.label ACIA_CMD     = $d202
+.label ACIA_CTRL    = $d203
+
 // 2. Your Main Program at the equivalent of CPU $F000
 * = $f000 "Main Program"
 main:
-        ldx #$00
-loop1:  lda Message,X    
-        sta $4000,X
-        inx 
-        cpx #$28
-        bne loop1
+        sei             // Disable interrupts
+        cld             // Clear decimal mode
+        
+        // 1. Initialize ACIA
+        lda #$00
+        sta ACIA_STATUS // Software reset
+        
+        // 2. Setup Control Register ($1E = 9600, 8-N-1)
+        // %0 = 1 stop bit, %00 = 8 bits, %11110 = 9600 baud
+        lda #%00011110  
+        sta ACIA_CTRL
 
+        // 3. Setup Command Register ($0B)
+        // %000 = No parity, %0 = Normal mode, %1 = No IRQ, %011 = DTR/RTS low
+        lda #%00001011
+        sta ACIA_CMD
+
+        // 4. Send Message Loop
         ldx #$00
-loop2:  lda $4000,X
-        sta $0400,X
-        inx 
-        cpx #$28
-        bne loop2
-        jmp ($fffe) 
+print_loop:
+        lda Message,X
+        beq done        // If we hit a null byte (0), we're finished
+        jsr send_char
+        inx
+        jmp print_loop
+
+done:   jmp ($fffe)        // Loop forever
+send_char:
+        sta ACIA_DATA   // Send the character
+        // Delay loop for ~1ms (at 1MHz-2MHz) to bypass R65C51 TX bug
+        // At 9600 baud, one char takes approx 1.04ms
+        
+//       ldy #$FF
+//delay:  dey
+//       bne delay
+        rts
 
 // 3. Fill the gap between Main and Message
 .fill $f200-*, $ea
@@ -31,7 +59,7 @@ loop2:  lda $4000,X
 * = $f200 "Message"
 Message:
         .text "CZESC TU SUPER KOMPUTER PAWLA           "
-
+        .byte $0D, $0A, 0 // CR, LF, and Null terminator
 // 4. Fill the gap between Message and the Vectors at the very end
 .fill $fffa-*, $ea
 
