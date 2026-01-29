@@ -15,7 +15,8 @@
 
 // 2. Your Main Program at the equivalent of CPU $F000
 * = $f000 "Main Program"
-sei
+main:
+        sei
         cld
         ldx #$ff
         txs
