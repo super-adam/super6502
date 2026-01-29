@@ -1,6 +1,7 @@
 ; Definicje adresów
 ACIA_DATA   = $D200
 ACIA_STATUS = $D201
+lda #$41
 
 SEND_CHAR:
     PHA             ; Zachowaj literę na stosie
