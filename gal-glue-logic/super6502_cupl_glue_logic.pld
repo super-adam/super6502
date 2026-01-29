@@ -34,13 +34,10 @@ Pin 16 = cs4;
 Pin 17 = acia_cs;
 Pin 18 = ram_cs;
 Pin 19 = rom_cs;
-rom_cs = !(a15 & a14 & a13);
-acia_cs = !(a15 & a14 & !a13 & a12 & !a11 & !a10 & a9 & !a8);
-ram_cs = !(rom_cs & acia_cs);
 
-/*
-rom_cs  = !(a13 & a15);  
-ram_cs  = a13 & a15;  
-*/
+acia_cs = !(a15 & a14 & !a13 & a12 & !a11 & !a10 & a9 & !a8);
+rom_cs  = !(a15 & a14 & a13);
+ram_cs  = (a15 & a14 & a13) # (a15 & a14 & !a13 & a12 & !a11 & !a10 & a9 & !a8);  
+
 
 

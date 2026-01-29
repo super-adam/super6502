@@ -25,7 +25,8 @@ acia_cs =>
     !a8 & a9 & !a10 & !a11 & a12 & !a13 & a14 & a15
 
 ram_cs =>
-    acia_cs & rom_cs
+    a13 & a14 & a15
+  # !a8 & a9 & !a10 & !a11 & a12 & !a13 & a14 & a15
 
 rom_cs =>
     a13 & a14 & a15

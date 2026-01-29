@@ -43,14 +43,16 @@ print_loop:
         jmp print_loop
 
 done:   jmp ($fffe)        // Loop forever
+
 send_char:
-        sta ACIA_DATA   // Send the character
-        // Delay loop for ~1ms (at 1MHz-2MHz) to bypass R65C51 TX bug
-        // At 9600 baud, one char takes approx 1.04ms
-        
-//       ldy #$FF
-//delay:  dey
-//       bne delay
+        pha             // Save A so we don't lose the character
+wait_tx:
+        lda ACIA_STATUS // Read status register
+        sta $00
+        and #$10        // Mask Bit 4 (Transmitter Data Register Empty)
+        beq wait_tx     // If bit is 0, it's still busy, so loop
+        pla             // Restore the character to A
+        sta ACIA_DATA   // Send it!
         rts
 
 // 3. Fill the gap between Main and Message

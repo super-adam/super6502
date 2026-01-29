@@ -3,3 +3,6 @@ src/.source.sym
 src/.source.txt
 src/.source.vs
 src/eprom_image.dbg
+src/kernel.sym
+src/kernel.vs
+kicad/*.kicad_pcb.lck
